@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react'
-import { BrowserRouter as Router, Routes, Route, Link, NavLink } from 'react-router-dom'
+import React from 'react'
+import { Routes, Route, Link, NavLink } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Plane, Menu, Clock3, Star, MapPin, Phone, Mail, Shield } from 'lucide-react'
 import Home from './components/Home'
@@ -15,7 +15,7 @@ import Admin from './components/admin/Admin'
 import './index.css'
 
 function Header() {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = React.useState(false)
   return (
     <header className="sticky top-0 z-40 backdrop-blur bg-white/70 border-b border-emerald-100">
       <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
@@ -97,26 +97,24 @@ function Footer(){
 
 function App(){
   return (
-    <Router>
-      <GradientBg>
-        <Header />
-        <main className="min-h-screen">
-          <Routes>
-            <Route path="/" element={<Home/>} />
-            <Route path="/about" element={<About/>} />
-            <Route path="/services" element={<Services/>} />
-            <Route path="/offers" element={<Offers/>} />
-            <Route path="/testimonials" element={<Testimonials/>} />
-            <Route path="/blog" element={<Blog/>} />
-            <Route path="/faq" element={<FAQ/>} />
-            <Route path="/contact" element={<Contact/>} />
-            <Route path="/login" element={<Login/>} />
-            <Route path="/admin" element={<Admin/>} />
-          </Routes>
-        </main>
-        <Footer />
-      </GradientBg>
-    </Router>
+    <GradientBg>
+      <Header />
+      <main className="min-h-screen">
+        <Routes>
+          <Route path="/" element={<Home/>} />
+          <Route path="/about" element={<About/>} />
+          <Route path="/services" element={<Services/>} />
+          <Route path="/offers" element={<Offers/>} />
+          <Route path="/testimonials" element={<Testimonials/>} />
+          <Route path="/blog" element={<Blog/>} />
+          <Route path="/faq" element={<FAQ/>} />
+          <Route path="/contact" element={<Contact/>} />
+          <Route path="/login" element={<Login/>} />
+          <Route path="/admin" element={<Admin/>} />
+        </Routes>
+      </main>
+      <Footer />
+    </GradientBg>
   )
 }
 
